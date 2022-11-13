@@ -1,0 +1,70 @@
+refer- https://docs.ansible.com/ansible/2.5/modules/command_module.html#command-module
+create directory by using command/shell module:
+-----------------------------------------
+- name: automation
+  hosts: all
+  become: true
+  tasks:
+    - name: execute directory
+      command: mkdir /home/newDir
+
+
+refer: https://docs.ansible.com/ansible/latest/collections/community/general/apache2_module_module.html
+--------------------------------------------------------------------------------
+install webserver by using httpd module
+---------------------------------------
+- name: installing apache by usign httpd
+  hosts: all
+  become: true
+  tasks:
+    - name: (httpd module)
+      yum:
+        name: httpd
+        state: present
+    - name: (service module)
+      service:
+        name: httpd
+        state: present
+
+copy shell script from master to node by usign script module
+------------------------------------------------------------
+- name: copy code from master to node
+  hosts: all
+  become: root
+  tasks:
+  - name: copy
+    script: /file/path/script.sh
+
+[example-2]
+------------
+- name: playbok for automate script
+  hosts: all
+  become: root
+  tasks:
+  - name: copy from master to node
+    script: /etc/ansible/script.sh
+
+[shell script]
+--------------
+#!/bin/bash
+sudo yum install httpd -y
+sudo systemctl start httpd.service
+sudo wget -P /var/www/html https://www.free-css.com/assets/files/free-css-templates/download/page284/pet-shop.zip
+sudo unzip -o /var/www/html/pet-shop.zip -d /var/www/html/
+sudo cp -rf /var/www/html/pet-shop-website-template/* /var/www/html/
+
+wget -P for purticulr directory
+unzip -o from overwrite
+unzip -d for save in purticular directory
+
+
+lineinfile module add a line in file
+------------------------------------
+- name: installing apache by usign httpd
+  hosts: all
+  become: true
+  tasks:
+  - name: add line in resolv file
+    lineinfile:
+      path: /etc/resolv.conf
+      line: nameserver 192.168.1.1

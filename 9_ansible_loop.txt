@@ -1,0 +1,34 @@
+it will add multiple user
+-----------------------------
+- name: condition playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: creating user '{{item}}'
+      user:
+        name: '{{item}}'
+      loop:
+        - ashiq
+        - sameera
+        - suhaib
+
+add multiple user with multile parameter:
+----------------------------------------
+
+- name: condition playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: creating user '{{item.name}}'
+      user:
+        name: '{{item.name}}'
+        uid: '{{item.uid}}'
+      loop:
+        - name: ashokan
+          uid: 1209
+        - name: summayya
+          uid: 2001
+        - name: ramdev
+          uid: 5600
+        - name: jayan
+          uid: 1200

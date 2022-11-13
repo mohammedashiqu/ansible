@@ -1,0 +1,16 @@
+1 ansible [hostname] -m ping 
+
+2 ansible-playbook play_book_name
+
+3 --check (not going to execute but i will give idea about plays, can understand the chnages in upcming script)
+
+4 -vvv , -vvvv (use for connection debugging)
+
+5 --version (to check version of ansible)
+
+6 --list-hosts  (outputs a list of matching hosts; does not execute anything else)
+
+7 --syntax-check (to check syntax)
+
+8 --diff (not going to execute but i will give idea about plays, can understand the chnages in upcming script)
+

@@ -1,0 +1,100 @@
+install nginx on only redhat based system
+-----------------------------------------
+- name: playbok for automate script
+  hosts: all
+  become: true
+  tasks:
+  - name: copy from master to node
+    yum:
+      name: nginx
+      state: present
+    when: ansible_os_family == "RedHat"
+
+-----------------------------------------------
+create one ubuntu server one amaozn linux
+-----------------------------------------
+- name: playbok for automate script
+  hosts: all
+  become: true
+  tasks:
+  - name: install epel
+    command: amazon-linux-extras install epel -y
+    when: ansible_os_family == "RedHat"
+  - name: copy from master to node
+    yum:
+      name: nginx
+      state: present
+    when: ansible_os_family == "RedHat"
+
+
+it is going to install epel and nginx in amaozn linux2, and it will skip from ubuntu
+
+
+
+ansible when condition for ubuntu
+----------------------------------
+- name: condition playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: install nginx
+    apt:
+      name: nginx
+      state: present
+    when: ansible_os_family == "Debian"
+
+-------------------------------------------------------------------------
+install multiple packages on ansible by using loop
+---------------------------------------------------
+- name: condition playbook
+  hosts: all
+  become: true
+  vars:
+    packages:
+    - name: nginx
+      required: true
+    - name: apache2
+      required: true
+  tasks:
+  - name: install '{{packages}}'
+    apt:
+      name: '{{item.name}}'
+      state: present
+    loop: '{{packages}}'
+    when: ansible_os_family == 'Debian'
+
+
+-----------------------------------------------------------
+register module
+---------------
+it used to capture system data
+eg: service up or down,  system ip table status                                                                                  
+target node should be linux
+
+- name: condition playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: my task
+      command: cat /file
+      register: result
+    - name: create directory
+      command: mkdir /created
+      when: result.stdout.find('ashiq1') != -1
+
+resister module example:
+------------------------
+create one linex machine an start aapche srever:
+
+- name: condition playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: my task
+      command: systemctl status httpd
+      register: result
+      when: ansible_os_family == "RedHat"
+    - name: create directory
+      shell: echo "yes it is active" > /report
+      when: result.stdout.find('active') != -1 and
+      when: ansible_os_family == "RedHat"

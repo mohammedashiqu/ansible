@@ -1,0 +1,27 @@
+to create dierctory
+-------------------
+to shutdown vm
+---------------
+- name: this is ansible automation
+  become: true
+  hosts: all
+  tasks:
+    - name: shutdown hosts
+      command: mkdir /mydir
+-----------------------------------------------------------------------------------------------------
+to shutdown vm
+---------------
+- name: this is ansible automation
+  become: true
+  hosts: all
+  tasks:
+    - name: shutdown hosts
+      command: /sbin/shutdown -h now
+----------------------------------------
+- name: tets
+  hosts: all
+  become: yes
+  tasks:
+  - name: shutdown hosts
+    command: /sbin/shutdown -h now
+---------------------------------------------------------------------------------------------------------

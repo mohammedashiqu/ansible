@@ -1,0 +1,19 @@
+doc refer:
+----------
+https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-fedora-or-centos
+
+important
+----------
+ansible only we can install linux based os, we cannot use anible on windows as master system, although we can manage windows
+instance. 
+
+fedrora, centos, amazon linux, linux:
+--------------------------------------
+install epel repo
+------------------
+amazon linux:- amazon-linux-extras install install epel
+fedora, centos, rhel:- yum install epel
+
+install ansible
+---------------
+yum install ansible

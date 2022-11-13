@@ -1,0 +1,64 @@
+module types
+------------
+command
+--------
+- command
+- expect
+- raw
+- script
+- shell
+
+database
+--------
+- mongoDB
+- mssql
+- mysql
+- postgresql
+- proxysql
+- vertica
+
+windows
+-------
+- win_copy
+- win_command
+- win_file
+- win_msg
+- win_service
+system
+-------
+- user
+- group
+- hostname
+- iptables
+- lvg
+- lvol
+- make
+- mount
+- ping
+- timezone
+-systemd
+-service
+
+files
+------
+- acl
+- archive
+- copy
+- file
+- find
+- lineinfile
+- replace
+- stat
+- template
+- unarchive
+
+cloud
+-----
+- amazon
+- azure
+- gcp
+- vmware
+- digital ocean
+
+more
+-----

@@ -1,0 +1,47 @@
+1) create pasword for remote system
+2) suppress host key checking:-
+goto ansible.cf file and search for host key checking and uncomment it
+3) with password authentication:-
+goto ansible host file add following line
+
+method one by using password:
+-----------------------------
+ip_address/hostname ansible_ssh_user=username ansible_ssh_pass=password
+
+command for check ping 
+## ansible all -m ping 
+
+method two by using ssh key:
+----------------------------
+ip_address/hostname ansible_ssh_user=ec2-user ansible_private_key_file=key_destination
+
+command for check ping 
+## ansible all -m ping 
+
+method three by using password less authentication:
+---------------------------------------------------
+ip_address/hostname ansible_ssh_user=username
+
+command for check ping 
+## ansible all -m ping 
+---------------------------------------------------------------------------------------------------------
+how to create sepperate inventory file:-
+-----------------------------------------
+we can create sepperate inventory file as well..!
+
+create file "any_custom_name" example: targets
+
+use the same synatx (take any one):
+-----------------------------------
+ip_address/hostname ansible_ssh_user=ec2-user ansible_private_key_file=key_destination (password auth)
+ip_address/hostname ansible_ssh_user=username ansible_ssh_pass=password (ssh key auth)
+ip_address/hostname ansible_ssh_user=username (password less auth)
+
+try to ping with cited command:
+ansible groupname/target_name -m ping -i inventory_file_name
+
+ansible command
+----------------
+ansible all/host -m ping 
+ansible-playbook playbook_name
+

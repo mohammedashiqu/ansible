@@ -1,0 +1,8 @@
+ansible_ssh_user(ansible_user) - username through ssh
+ansible_ssh_pass - passowrd through ssh
+ansible_private_key_file - private key file name
+ansible_user - username
+ansible_connection - ssh/winrm/localhost
+ansible_host - hostname
+ansible_port - which port want to connect
+

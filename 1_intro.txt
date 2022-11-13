@@ -1,0 +1,40 @@
+what is ansible?
+it is automation tool, whwre we can automate all repetitive process.
+
+Ansible Inventory:
+A list of managed nodes provided by one or more ‘inventory sources’. Your inventory can specify information specific to each node, like IP address.
+
+Ansible Playbooks:
+Ansible Playbooks are lists of tasks that automatically execute against hosts.
+
+Ansible Modules :
+various kind of command, which we can execute on rmemote system for desired output.
+ansible module which contain on -> docs.ansible.com 
+
+Ansible Variables:
+variable is that may assume any one of a set of values, if you want to use file multiple time, then create a variable named as file, so whenever u want
+to use this file at that time u can give, variable name so it will get the data from variable property.
+
+Ansible Conditionals:
+we can give conditions, once it met condition, it will do the appropriate action on it.  
+
+Ansible Loops :
+ansible can execute multiple times. example- 1 to 10
+
+Ansible Roles:
+you can easily reuse them and share them with other users.
+
+how to find syntax for ansible?
+docs.ansible.com
+example for ansible automation? automatic turn on and turn off, configuraion, install apahe, patching..!
+
+use case of ansible:
+--------------------
+provisoning
+configuration management
+continous delivery
+application deployment
+security compliance
+
+
+

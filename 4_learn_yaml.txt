@@ -1,0 +1,47 @@
+ansible use yaml to configure (yet another markup language)
+
+key/value pair:
+--------------
+name: apple
+color: red
+place: kashmir
+(keep to leave small space in bewteen fullcoln and value)
+
+array/list:
+-----------
+fruits:
+-  orange
+-  apple
+-  grapes
+
+veg:
+-  tomato
+-  carrot
+- cauliflower
+
+dictionary
+----------
+banana:
+  calory: 100g
+  fat: 0.4g
+  carbs: 27g
+
+grapes:
+  calory: 120g
+  fat:  0.6g
+  carbs: 110g
+
+
+example;
+--------
+fruits:
+  - banana:
+      calories: 105
+      fat: 0.4g
+      carbs: 27g
+  - grapes:
+      calories: 105
+      fat: 0.4g
+      carbs: 27g
+      
+    

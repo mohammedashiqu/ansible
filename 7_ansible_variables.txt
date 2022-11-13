@@ -1,0 +1,35 @@
+variable
+--------
+component of ansible, where we can store values and we can use with global scop.
+
+we can create sepparte 'variable file' or we can create 'vars' in inside playbook
+
+example: variable in same file
+- hosts: all
+  name: play
+  become: true
+  vars: 
+    var1: var1
+    var2: reshma
+  tasks:
+  - name: first task
+    lineinfile:
+      path: /etc/resolv.conf
+      line: '{{var1}}'
+
+-------------------------------------------------------------------
+mention variable in different file
+----------------------------------
+create one more file var.yml
+
+goto playbook add path of 'vars_file: /etc/ansible/var.yml'
+
+- hosts: all
+  name: play
+  become: true
+  vars_files: /etc/ansible/var.yml
+  tasks:
+  - name: first task
+    lineinfile:
+      path: /etc/resolv.conf
+      line: '{{var1}}'
